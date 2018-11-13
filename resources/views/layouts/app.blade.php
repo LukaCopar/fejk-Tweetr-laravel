@@ -23,6 +23,82 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+ .tweet{
+                padding: 9px 12px;
+                border-bottom: 1px #e6ecf0 solid;
+                cursor: pointer;
+                width: 100%;
+                background-color: white;
+                min-height: 51px;
+                
+            }
+            .tweet:hover{
+                background-color: #f5f8fa;
+                transition: background .1s linear;
+                
+            }
+            .tweet-profile-pic{
+                
+                width: 48px;
+                min-height: 100%;
+                border-radius: 50%;
+                overflow: hidden;
+                float: left;
+                
+            }
+            .avatar-pic{
+                width: 50px;
+                height: 50px;
+                
+            }
+            .profile-info{
+                padding: 5px;
+                float: right;
+                width:90%;
+                height: 14px;
+                text-align: left;
+                color: #657786;
+                font-size: 14px;
+            }
+            .content{
+                font-size: 15px;
+                padding: 5px;
+                text-align: left;
+                margin-top: 10px;
+                overflow: hidden;
+                width: 90%;
+                float: right;
+                min-height: 40px;
+                
+            }
+            .tweet-username{
+                color: black;
+                font-weight: 700;
+                text-decoration: underline;
+                
+            }
+            .tweet-pic{
+                float: right;
+                overflow: hidden;
+                min-width: 90%;
+                
+            }
+            .tweet-bottom{
+                text-align: left;
+                padding-left: 50px;
+                overflow: hidden;
+                min-width: 90%;
+                max-width: 100%;
+                outline: 0;
+            }
+            .tweet-icons-bottom{
+                cursor: pointer;
+                background-color: transparent;
+                border: 0;
+                outline-width: 0;
+
+        </style>
 </head>
 <body>
      @include('inc.navbar')

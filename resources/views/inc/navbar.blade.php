@@ -12,17 +12,8 @@
                     <ul class="navbar-nav mr-auto">
                            
                                     <li class="nav-item">
-                                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                      <a class="nav-link" href="/posts">Home <span class="sr-only">(current)</span></a>
                                     </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="/services">services</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="/about">about</a>
-                                    </li>
-                                    <li class="nav-item">
-                                          <a class="nav-link" href="/posts">blog</a>
-                                        </li>
                                      <li class="nav-item">
                                           <a class="nav-link" href="/home">Profile <span class="sr-only">(current)</span></a>
                                      </li>

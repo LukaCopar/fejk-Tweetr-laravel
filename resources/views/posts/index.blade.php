@@ -5,7 +5,7 @@
     @if(count($posts)>0)
 
         @foreach ($posts as $post)  
-        <div class="well" style="border-bottom: solid .1px lightgray; margin-bottom: 10px; padding-bottom: 2px;">
+        <div class="tweet" style="border-bottom: solid .1px lightgray; margin-bottom: 10px; padding-bottom: 2px;">
             <div class="row">
                 <div class="col-md-4 col-sm-4" style="max-width:101px; max-height:101px; margin-right: 20px;">
                     <img style="max-width:100px; max-height:100px; min-height: 55px;" src="/storage/cover_image/{{$post->cover_image}}">

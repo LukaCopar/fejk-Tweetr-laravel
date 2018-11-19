@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Edit user</h1>
-    {!! Form::open(['action' => ['usersController@update', $user->id], 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => ['usersController@update', Auth::user()->id], 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('name', 'Name')}}
         {{Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Name' ])}}

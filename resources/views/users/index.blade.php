@@ -12,8 +12,7 @@
                           <span style="max-width: 100%; padding-botom: 5px; float:right; max-height: 40px; white-space: normal;">joined: {{$user->created_at}}</span>    
 
           </div> 
-          <br>
-          <hr>
+          <br><br>
                         
       @endforeach
 @endsection

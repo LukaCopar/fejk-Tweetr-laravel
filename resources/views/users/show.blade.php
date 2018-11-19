@@ -1,24 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="jumbotron text-center">
-        <h1>{{$user->name}}</h1>
-        <h3 style="float:left; ">Posts from this user</h3>
-        <br>
-        <hr>
-   @foreach ($posts as $post)
-   <div class="well" style="border-bottom: solid .1px lightgray; margin-bottom: 10px; padding-bottom: 2px;">
-    <div class="row">
-        <div class="col-md-4 col-sm-4" style="max-width:101px; max-height:101px; margin-right: 20px;">
-            <img style="max-width:100px; max-height:100px; min-height: 55px;" src="/storage/cover_image/{{$post->cover_image}}">
-        </div>
-        <div class="col-md-8 col-sm-8">
-                <h3><a href="/posts/{{$post->id}}"> {{$post -> title}}</a></h3>
-                <small>Writeen on {{$post -> created_at}} by {{$post->user->name}}</small>
-                  
-         </div>
-    </div>
-</div>
-   @endforeach
+    <h1>tweets</h1>
+    @if(count($posts)>0)
 
+        @foreach ($posts as $post) 
+        <a href="/posts/{{$post->id}}"> 
+        <div class="tweet">
+            <div class="container">
+              <div class="tweet-profile-pic">
+                 <img class="avatar-pic" src="/storage/user_image/{{$post->user->profile_pic_URL}}">
+                  </div>
+               
+                 <div class="profile-info">
+                 <span class="tweet-username">{{$post->user->name}}</span> &#64;{{$post->user->ussername}}
+                   </div>
+                   <br>
+            </div>
+            <div class="content">
+
+
+                {!!$post -> body!!}
+            </div>
+            @if($post->cover_image !== 'noimage.jpg')
+                
+            
+                    <img class="tweet-pic" src="/storage/cover_image/{{$post->cover_image}}"><br>
+            @endif
+                    <p style="float: right;">Writeen on {{$post -> created_at}} by {{$post->user->name}}</p>
+
+                        
+        </div>
+        </a>
+      @endforeach
+          {{$posts ->links()}}
+    @else
+    <p>no posts found</p>
+    @endif
 @endsection

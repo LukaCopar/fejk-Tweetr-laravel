@@ -8,6 +8,7 @@ use App\Post;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facade\Storage;
 
+
 class usersController extends Controller
 {
     /**

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\user;
 use App\Post;
-use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facade\Storage;
 
 class usersController extends Controller
@@ -64,7 +65,8 @@ class usersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -76,7 +78,39 @@ class usersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'ussername' => 'required',
+            'user_image' => 'image|nullable|max:1999'
+        ]);
+
+
+        if($request->hasFile('user_image')){
+            $filenameWithExt = $request->file('user_image')->getClientOriginalName();
+                //get filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                //get ext
+            $extension = $request->file('user_image')->getClientOriginalExtension();
+                //filename to store
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+                //upload image
+            $path = $request->file('user_image')->storeAs('public/user_image', $filenameToStore);
+        }
+
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->ussername = $request->input('ussername');
+        if($request->input('password') == $request->input('password-conf') && $request->input('password') !== '')
+        {
+          $password =  Hash::make($request->input('password'));
+          $user->password = $password;
+        }
+            if($request->hasFile('user_image')){
+              $user->profile_pic_URL = $filenameToStore;
+            }
+        $user -> save();
+
+        return redirect('/users')->with('success', 'user Updated');
     }
 
     /**

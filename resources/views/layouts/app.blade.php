@@ -25,12 +25,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
  .tweet{
+                margin-left: 20%; 
                 padding: 9px 12px;
                 border-bottom: 1px #e6ecf0 solid;
                 cursor: pointer;
-                width: 100%;
+                width: 60%;
                 background-color: white;
                 min-height: 51px;
+                overflow: hidden;
                 
             }
             .tweet:hover{
@@ -62,12 +64,13 @@
                 font-size: 14px;
             }
             .content{
+                color: black;
                 font-size: 15px;
-                padding: 5px;
+                padding: 6px;
                 text-align: left;
                 margin-top: 10px;
                 overflow: hidden;
-                width: 90%;
+                width: 100%;
                 float: right;
                 min-height: 40px;
                 
@@ -82,6 +85,7 @@
                 float: right;
                 overflow: hidden;
                 min-width: 90%;
+                max-height: 100%;   
                 
             }
             .tweet-bottom{

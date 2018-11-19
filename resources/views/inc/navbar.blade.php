@@ -26,13 +26,18 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    
                     <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                    <a class="dropdown-item" href="/users/1/edit">Edit</a>
+                                        </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="/posts/create">Create</a>
                                 </li>
             
                         <!-- Authentication Links -->
                         @guest
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -55,12 +60,14 @@
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
+                                        
                                     </form>
+                                        
                                 </div>
                             </li>
                         @endguest
                     </ul>
+                    
                 </div>
             </div>
         </nav>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\comment;
+use App\User;
 use Illuminate\Support\Facade\Storage;
 
 class PostsController extends Controller
@@ -17,7 +18,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
-        return view('posts.index')->with('posts', $posts);
+        $users = User::get();
+        return view('posts.index')->with(['posts' => $posts, 'users' => $users]);
     }
     /**
      * Create a new controller instance.

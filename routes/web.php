@@ -29,3 +29,4 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/{id}/follow', 'usersController@follow');

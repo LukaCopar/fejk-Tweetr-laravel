@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\user;
 use App\Post;
+use App\follow;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facade\Storage;
+
+use DB;
 
 
 class usersController extends Controller
@@ -19,7 +22,6 @@ class usersController extends Controller
     public function index()
     {
         $users = User::orderBy('created_at','desc')->paginate(10);
-
         $data = 'Users';
         return view('users.index')->with(['data'=> $data,'users' => $users]);
     }
@@ -123,5 +125,27 @@ class usersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function follow($id){
+        $comments = follow::get()->where('user_id', auth()->user()->id)->where('follows_id', $id)->pluck('id')->first();
+
+        if($comments != null){
+
+            $comments = follow::get()->where('user_id', auth()->user()->id)->where('follows_id', $id)->pluck('id');
+            $follow = follow::find($comments)->first();
+            $follow->delete();
+        }else{
+        if($id != auth()->user()->id){
+
+        $follow = new follow;
+        $follow->follows_id = $id;
+        $follow->user_id = auth()->user()->id;
+        $follow -> save();
+
+        }
+    }
+       return redirect()->back(); 
+
     }
 }

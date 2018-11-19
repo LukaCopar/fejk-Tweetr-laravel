@@ -29,7 +29,7 @@
                     
                     <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                            <a class="dropdown-item" href="/users/{{Auth::user()->id}}/edit">Edit</a>
+                            <a class="nav-link" href="/users/{{Auth::user()->id}}/edit">Edit</a>
                                         </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="/posts/create">Create</a>
@@ -65,6 +65,7 @@
                                         
                                 </div>
                             </li>
+                            
                         @endguest
                     </ul>
                     

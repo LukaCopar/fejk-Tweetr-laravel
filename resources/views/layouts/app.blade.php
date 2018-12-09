@@ -101,11 +101,12 @@
                 background-color: transparent;
                 border: 0;
                 outline-width: 0;
+            }
 
         </style>
 </head>
 <body>
-     @include('inc.navbar')
+        @include('inc.navbar')
       <div id="app">
         
 

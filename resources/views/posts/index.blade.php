@@ -33,7 +33,6 @@
         </div>
         </a>
       @endforeach
-          {{$posts ->links()}}
     @else
     <p>no posts found</p>
     @endif

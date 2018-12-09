@@ -29,8 +29,12 @@
                     
                     <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                            <a class="nav-link" href="/users/{{Auth::user()->id}}/edit">Edit</a>
-                                        </li>
+                                @if(!empty(Auth::user()))
+                                    
+                                      <a class="nav-link" href="/users/{{Auth::user()->id}}/edit">Edit</a>
+                                      </li>
+                                        @endif
+
                             <li class="nav-item">
                                     <a class="nav-link" href="/posts/create">Create</a>
                                 </li>

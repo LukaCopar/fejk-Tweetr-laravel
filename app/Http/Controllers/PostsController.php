@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\comment;
 use App\User;
+use App\follow;
 use Illuminate\Support\Facade\Storage;
 
 class PostsController extends Controller
@@ -17,9 +18,16 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        if(!empty(auth()->user()->id)){
+        $follows = follow::where('user_id', auth()->user()->id)->pluck('follows_id');
+        $posts = Post::whereIn('user_id', $follows)->orderBy('created_at','desc')->get();
+       // orderBy('created_at','desc')->paginate(10)
         $users = User::get();
         return view('posts.index')->with(['posts' => $posts, 'users' => $users]);
+        }else{
+        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        return view('posts.index')->with(['posts' => $posts]);
+        }
     }
     /**
      * Create a new controller instance.
@@ -89,7 +97,7 @@ class PostsController extends Controller
     public function show($id)
     {
       $post =  Post::find($id);
-      $comments = comment::orderBy('created_at','desc')->where('post_id', $post->id)->paginate(10);
+      $comments = comment::where('post_id', $id)->get();
       return view('posts.show')->with(['post'=> $post,'comments' => $comments]);
     }
 

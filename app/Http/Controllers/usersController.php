@@ -29,8 +29,8 @@ class usersController extends Controller
         $data = 'Users';
         return view('users.index')->with(['data'=> $data,'users' => $users]);
     }
-    $posts = Post::orderBy('created_at','desc')->paginate(10);
-    return view('posts.index')->with(['posts' => $posts]);
+        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        return view('posts.index')->with(['posts' => $posts]);
     }
 
     /**

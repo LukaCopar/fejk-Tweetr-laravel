@@ -30,4 +30,8 @@ Route::get('/services', 'PagesController@services');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/{id}/follow', 'usersController@follow');
-Route::get('/logout', 'Auth\AuthController@logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

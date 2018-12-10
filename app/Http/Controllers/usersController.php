@@ -14,6 +14,8 @@ use DB;
 
 class usersController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +23,14 @@ class usersController extends Controller
      */
     public function index()
     {
+
+        if(!empty(auth()->user()->id)){
         $users = User::orderBy('created_at','desc')->paginate(10);
         $data = 'Users';
         return view('users.index')->with(['data'=> $data,'users' => $users]);
+    }
+    $posts = Post::orderBy('created_at','desc')->paginate(10);
+    return view('posts.index')->with(['posts' => $posts]);
     }
 
     /**

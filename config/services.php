@@ -13,6 +13,11 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    'github' => [
+        'client_id' => env('08ff410470f5ed58844f'), // Your GitHub Client ID
+        'client_secret' => env('e64012e7eccb3f1593e4f4c479362634a01c8b27'), // Your GitHub Client Secret
+        'redirect' => env('https://lsapp.shit/login/github/callback'),
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

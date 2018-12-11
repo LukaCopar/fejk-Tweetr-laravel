@@ -69,9 +69,28 @@
                             </div>
                         </div>
                     </form>
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <a href="{{ url('/login/github') }}" class="btn btn-github"><i class="fa fa-github"></i> Github</a>
+                                </div>
+                        </div>
+                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 @endsection

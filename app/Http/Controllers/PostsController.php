@@ -20,6 +20,11 @@ class PostsController extends Controller
     {
         if(!empty(auth()->user()->id)){
         $follows = follow::where('user_id', auth()->user()->id)->pluck('follows_id');
+        $i = 0;
+        foreach($follows as $row){
+            $i++;
+        }
+        $follows[$i] = auth()->user()->id; 
         $posts = Post::whereIn('user_id', $follows)->orderBy('created_at','desc')->get();
        // orderBy('created_at','desc')->paginate(10)
         $users = User::get();

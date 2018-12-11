@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -61,24 +61,18 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                Register
+                                </button>
                             </div>
                         </div>
                         <hr>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <a href="{{ url('/login/github') }}" class="btn btn-github"><i class="fa fa-github"></i> Github</a>
-                                </div>
+                            </div>
                         </div>
                      </form>
                 </div>
